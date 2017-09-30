@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/liujiangnan/lifekit-login#readme",
   "dependencies": {
+    "mysql2": "^1.4.2",
     "node-uuid": "^1.4.8",
     "sequelize": "^4.11.4"
   }

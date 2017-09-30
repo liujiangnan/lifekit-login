@@ -1,14 +1,15 @@
+const engineRoot = ENGINE_PATH+'/lifekit-login';
+
 const crypto = require('crypto');
-console.log(module);
 const Sequelize = require('sequelize');
-const datasource = require('/config/datasource.json');
+const datasource = require(engineRoot+'/src/config/datasource.json');
 const sequelize = new Sequelize(
   datasource.database,
   datasource.username,
   datasource.password,
   datasource);
 
-let user = sequelize.import('../model/user.js');
+let user = sequelize.import(engineRoot+'/src/model/user.js');
 
 sequelize.sync({force: false}).then(function() {
     console.log("DB successed to start");
@@ -19,7 +20,7 @@ sequelize.sync({force: false}).then(function() {
 function service(net) {
 
   this.init = function(ctx) {
-    return ctx.render("engine/login/web/login/login.ejs", {});
+    return ctx.render("lifekit-login/web/login/login.ejs", {});
   }
 
   this.login = async function(ctx, parms) {
