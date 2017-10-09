@@ -3,6 +3,7 @@ const engineRoot = ENGINE_PATH+'/lifekit-login';
 const crypto = require('crypto');
 const Sequelize = require('sequelize');
 const datasource = require(engineRoot+'/src/config/datasource.json');
+const jumpUrl = require(engineRoot+'/src/config/jump.json');
 const sequelize = new Sequelize(
   datasource.database,
   datasource.username,
@@ -19,7 +20,9 @@ sequelize.sync({force: false}).then(function() {
 
 function service(net) {
 
-  this.init = function(ctx) {
+  net.data.jumpUrl = jumpUrl;
+
+  this.init = function(ctx) { 
     return ctx.render("lifekit-login/web/login/login.ejs", {});
   }
 

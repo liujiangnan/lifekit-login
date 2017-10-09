@@ -22,7 +22,7 @@ function bindEvent(){
             if(obj.flag!='success'){
                 $("#cueinfo").html("用户名或密码错误").show();
             }else{
-                window.location.href = "/lifekit-login/update";
+                window.location.href = net.data.jumpUrl.login_success;  //配置文件指定的路径（jump.json）
             }
         });  
     });

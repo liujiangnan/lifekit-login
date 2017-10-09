@@ -119,7 +119,7 @@ function saveInfo(){
     net.getView("addUser",JSON.stringify(userObj),function(res){
         var obj = JSON.parse(res);
         if(obj.flag==="success"){
-            window.location.href = "/phone-pay";
+            window.location.href = net.data.jumpUrl.login_success;  //配置文件指定的路径（jump.json）
         }else{
             showModal("提示","注册失败!","确定");
         }
