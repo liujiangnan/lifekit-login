@@ -110,16 +110,16 @@ function checkInfo(){
 
 function saveInfo(){
     var userObj = {
-        USERNAME:$("#username").val(),
-        PASSWORD:$("#password").val(),
-        EMAIL:$("#myEmail").val(),
-        NAME:$("#nc").val(),
-        PHONE:$("#phoneNum").val()
+        username:$("#username").val(),
+        password:$("#password").val(),
+        email:$("#myEmail").val(),
+        name:$("#nc").val(),
+        phone:$("#phoneNum").val()
     }; 
     net.getView("addUser",JSON.stringify(userObj),function(res){
         var obj = JSON.parse(res);
         if(obj.flag==="success"){
-            window.location.href = "/yxjk";
+            window.location.href = "/phone-pay";
         }else{
             showModal("提示","注册失败!","确定");
         }
@@ -139,6 +139,6 @@ $(function(){
         }
     });
     $("#cancle").bind('click',function(){
-        document.location.href="/login";
+        document.location.href="/lifekit-login";
     });
 });

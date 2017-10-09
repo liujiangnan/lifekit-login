@@ -31,7 +31,7 @@ function checkInfo(){
                         type: 'POST',//请求方式
                         /**自定义提交数据，默认值提交当前input value*/
                         data: function(validator) {
-                            return net.getAjaxData("checkNc",$("#nc").val());
+                            return net.getAjaxData("checkNcAgain",$("#nc").val());
                         }
                     },
                 }
@@ -62,16 +62,15 @@ function checkInfo(){
 
 function saveInfo(){
     var userObj = {
-        USERNAME:$("#username").val(), 
-        EMAIL:$("#myEmail").val(),
-        NAME:$("#nc").val(),
-        PHONE:$("#phoneNum").val()
+        email:$("#myEmail").val(),
+        name:$("#nc").val(),
+        phone:$("#phoneNum").val()
     }; 
-    net.getView("update",JSON.stringify(userObj),function(res){
+    net.getView("updateUser",JSON.stringify(userObj),function(res){
         var obj = JSON.parse(res);
         if(obj.flag==="success"){
             showModal("提示","修改成功!","确定");
-            window.history.back(); 
+            //window.history.back(); 
         }else{
             showModal("提示","修改失败!","确定");
         } 

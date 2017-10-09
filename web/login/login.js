@@ -4,8 +4,8 @@
 function adjustmentPage(){
     var formHeight = $(".row").height();
     var pageHeight = $(".container-fluid").height();
-    var topH = (pageHeight-formHeight)/2;
-    $(".row").css("margin-top",topH+"px");
+    var topH = pageHeight/2-formHeight;
+    $(".row").css("margin-top","200px");
 }
 
 //绑定事件
@@ -22,15 +22,13 @@ function bindEvent(){
             if(obj.flag!='success'){
                 $("#cueinfo").html("用户名或密码错误").show();
             }else{
-                window.location.href = "/yxjk";
+                window.location.href = "/lifekit-login/update";
             }
         });  
     });
 
     $("#registerUser").bind('click',function(){ 
-        net.getView("getEjs","engine/login/web/register/index.ejs",function(res){
-            $("#divAll").html(res);
-        });
+        window.location.href = "/lifekit-login/register";
     });
 
 
