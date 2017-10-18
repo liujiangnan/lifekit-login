@@ -13,9 +13,9 @@ const sequelize = new Sequelize(
 let user = sequelize.import(engineRoot+'/src/model/user.js');
 
 sequelize.sync({force: false}).then(function() {
-    console.log("DB successed to start");
+    console.log("USER数据结构初始化成功");
 }).catch(function(err){
-    console.log("DB failed to start due to error: %s", err);
+    console.log("USER数据结构初始化失败: %s", err);
 });
 
 function service(net) {
